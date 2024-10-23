@@ -87,10 +87,10 @@ export async function POST(req: Request) {
     program.programId
   );
 
-  // const [sleeperPDA] = anchor.web3.PublicKey.findProgramAddressSync(
-  //   [Buffer.from("sleeper_account"), account.toBuffer()],
-  //   program.programId
-  // );
+  const [sleeperPDA] = anchor.web3.PublicKey.findProgramAddressSync(
+    [Buffer.from("sleeper_account"), account.toBuffer()],
+    program.programId
+  );
 
   // const [tokenAccount] = anchor.web3.PublicKey.findProgramAddressSync(
   //   [account.toBuffer(), TOKEN_2022_PROGRAM_ID.toBuffer(), mintPDA.toBuffer()],
@@ -104,11 +104,11 @@ export async function POST(req: Request) {
 
   const sleeperAccountInstruction = await program.methods
     .createNewSleeper("test")
-    .accounts({
+    .accountsPartial({
       payer: account,
       mint: mintPDA,
-      // sleeperAccount: sleeperPDA,
-      // tokenAccount: tokenAddress,
+      sleeperAccount: sleeperPDA,
+      tokenAccount: tokenAddress,
     })
     .instruction();
 
