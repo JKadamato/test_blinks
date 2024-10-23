@@ -1,4 +1,10 @@
-{
+/**
+ * Program IDL in camelCase format in order to be used in JS/TS.
+ *
+ * Note that this is only a type helper and is not the actual IDL. The original
+ * IDL can be found at `target/idl/sleep.json`.
+ */
+export type Sleep = {
   "address": "13go66PaZfF5vMYAKhvq5tRbcAmcEEiS8eLeqJnwkokF",
   "metadata": {
     "name": "sleep",
@@ -30,27 +36,27 @@
           "writable": true
         },
         {
-          "name": "sleeper_account",
+          "name": "sleeperAccount",
           "writable": true
         },
         {
-          "name": "token_account",
+          "name": "tokenAccount",
           "writable": true
         },
         {
-          "name": "token_program",
+          "name": "tokenProgram",
           "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
         }
       ],
       "args": [
         {
-          "name": "end_time",
+          "name": "endTime",
           "type": "u64"
         }
       ]
     },
     {
-      "name": "create_new_sleeper",
+      "name": "createNewSleeper",
       "discriminator": [
         110,
         95,
@@ -68,10 +74,7 @@
           "signer": true
         },
         {
-          "name": "mint"
-        },
-        {
-          "name": "sleeper_account",
+          "name": "sleeperAccount",
           "writable": true,
           "pda": {
             "seeds": [
@@ -103,7 +106,41 @@
           }
         },
         {
-          "name": "token_account",
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "createNewTokenAccount",
+      "discriminator": [
+        32,
+        215,
+        65,
+        29,
+        144,
+        42,
+        105,
+        162
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "tokenAccount",
           "writable": true,
           "pda": {
             "seeds": [
@@ -193,31 +230,29 @@
           }
         },
         {
-          "name": "system_program",
+          "name": "mint"
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+        },
+        {
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "associatedTokenProgram",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
           "name": "rent",
           "address": "SysvarRent111111111111111111111111111111111"
-        },
-        {
-          "name": "associated_token_program",
-          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
-        },
-        {
-          "name": "token_program",
-          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
         }
       ],
-      "args": [
-        {
-          "name": "name",
-          "type": "string"
-        }
-      ]
+      "args": []
     },
     {
-      "name": "initialize_token",
+      "name": "initializeToken",
       "discriminator": [
         38,
         209,
@@ -235,7 +270,7 @@
           "signer": true
         },
         {
-          "name": "mint_account",
+          "name": "mintAccount",
           "writable": true,
           "pda": {
             "seeds": [
@@ -264,11 +299,11 @@
           }
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         },
         {
-          "name": "token_program",
+          "name": "tokenProgram",
           "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
         }
       ],
@@ -277,14 +312,14 @@
           "name": "args",
           "type": {
             "defined": {
-              "name": "TokenConfig"
+              "name": "tokenConfig"
             }
           }
         }
       ]
     },
     {
-      "name": "mint_token_to",
+      "name": "mintTokenTo",
       "discriminator": [
         105,
         222,
@@ -310,7 +345,7 @@
           "writable": true
         },
         {
-          "name": "token_program",
+          "name": "tokenProgram",
           "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
         }
       ],
@@ -322,7 +357,7 @@
       ]
     },
     {
-      "name": "start_sleep",
+      "name": "startSleep",
       "discriminator": [
         182,
         244,
@@ -354,7 +389,7 @@
   ],
   "accounts": [
     {
-      "name": "Sleeper",
+      "name": "sleeper",
       "discriminator": [
         247,
         88,
@@ -370,18 +405,18 @@
   "errors": [
     {
       "code": 6000,
-      "name": "InvalidName",
+      "name": "invalidName",
       "msg": "Name too long"
     }
   ],
   "types": [
     {
-      "name": "Sleeper",
+      "name": "sleeper",
       "type": {
         "kind": "struct",
         "fields": [
           {
-            "name": "sleeper_key",
+            "name": "sleeperKey",
             "type": "pubkey"
           },
           {
@@ -389,11 +424,11 @@
             "type": "string"
           },
           {
-            "name": "start_time",
+            "name": "startTime",
             "type": "u64"
           },
           {
-            "name": "end_time",
+            "name": "endTime",
             "type": "u64"
           },
           {
@@ -404,7 +439,7 @@
       }
     },
     {
-      "name": "TokenConfig",
+      "name": "tokenConfig",
       "type": {
         "kind": "struct",
         "fields": [
@@ -424,4 +459,4 @@
       }
     }
   ]
-}
+};

@@ -1,16 +1,18 @@
-import * as anchor from "@coral-xyz/anchor";
-import { Program } from "@coral-xyz/anchor";
-import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
+// import { IDL, Sleep } from "./Sleep";
 
-import type { SleepProgram } from "./SleepProgram";
-import sleepIdl from "../anchor/idl.json";
+// import { clusterApiUrl, PublicKey, Connection } from "@solana/web3.js";
+// import { AnchorProvider, IdlAccounts, Program } from "@coral-xyz/anchor";
 
-const provider = anchor.AnchorProvider.env();
-anchor.setProvider(provider);
+// const programId = new PublicKey("8AW5tuZCCxG5zm6Tu3C4APokQKFBuYN7qFHrxqVXnRye");
+// const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
-const connection = provider.connection;
-const wallet = provider.wallet as NodeWallet;
-export const program = new Program<SleepProgram>(
-  sleepIdl as unknown as SleepProgram,
-  provider
-);
+// const provider = new AnchorProvider();
+
+// export const program = new Program<Sleep>(IDL, programId, {
+//   connection,
+// });
+
+// // export const [SleeperPDA] = PublicKey.findProgramAddressSync(
+// //   [Buffer.from("sleeper_account")],
+// //   program.programId
+// // );
