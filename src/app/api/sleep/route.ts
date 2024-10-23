@@ -18,13 +18,13 @@ import idl from "../../anchor/idl.json";
 import { Sleep } from "@/app/anchor/Sleep";
 import { getAssociatedTokenAddressSync } from "@solana/spl-token";
 
-const TOKEN_2022_PROGRAM_ID = new PublicKey(
-  "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
-);
+// const TOKEN_2022_PROGRAM_ID = new PublicKey(
+//   "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+// );
 
-const SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID = new PublicKey(
-  "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
-);
+// const SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID = new PublicKey(
+//   "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+// );
 
 const headers = createActionHeaders({
   chainId: "devnet",
