@@ -130,5 +130,5 @@ export async function POST(req: Request) {
     },
   });
 
-  return Response.json(response, { headers: ACTIONS_CORS_HEADERS });
+  return Response.json(response, { headers });
 }
