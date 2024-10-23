@@ -29,6 +29,7 @@ import { getAssociatedTokenAddressSync } from "@solana/spl-token";
 const headers = createActionHeaders({
   chainId: "devnet",
   actionVersion: "2.2.1",
+  headers: ACTIONS_CORS_HEADERS,
 });
 
 export const GET = async () => {
